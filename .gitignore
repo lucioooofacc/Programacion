@@ -1,0 +1,8 @@
+# Ignorar la carpeta de configuración de IntelliJ
+.idea/
+
+# Ignorar el archivo de módulo de IntelliJ
+*.iml
+
+# Ignorar la carpeta de archivos compilados
+out/
