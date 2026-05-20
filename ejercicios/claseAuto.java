@@ -1,4 +1,4 @@
-package programacion;
+package programacion.ejercicios;
 import java.security.SecureRandom;
 import java.util.*;
 

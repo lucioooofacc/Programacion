@@ -1,4 +1,4 @@
-package programacion;
+package programacion.ejercicios;
 import java.util.*;
 public class perro {
     String nombre;

@@ -1,5 +1,5 @@
-package programacion;
-import static programacion.MisFunciones.*;
+package programacion.ejercicios;
+import static programacion.ejercicios.MisFunciones.*;
 import java.util.*;
 public class MenuArray {
 

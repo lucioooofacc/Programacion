@@ -1,4 +1,4 @@
-package programacion;
+package programacion.ejercicios;
 public class MisFunciones {
 
     public static double suma_element(double[] lista) {
