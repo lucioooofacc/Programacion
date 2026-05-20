@@ -73,7 +73,6 @@ public class claseAuto {
         claseAuto a1 = new claseAuto("Nissan", "Note", "Azul", 2026, "Nafta");
         a1.mostrarDatos();
         a1.frenar();
-        System.out.println("Nissan".length());
         System.out.println();
     }
 }
