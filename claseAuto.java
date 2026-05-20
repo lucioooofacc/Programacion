@@ -6,15 +6,15 @@ public class claseAuto {
     String marca;
     String modelo;
     String color;
-    int año;
+    int anio;
     String nro_serie;
     String tipoCombus;
 
-    public claseAuto(String marca, String modelo, String color, int año, String tipoCombus) {
+    public claseAuto(String marca, String modelo, String color, int anio, String tipoCombus) {
         this.marca = marca;
         this.modelo = modelo;
         this.color = color;
-        this.año = año;
+        this.anio = anio;
         this.tipoCombus = tipoCombus;
         this.nro_serie = generarNroSerie(); 
     }
@@ -43,7 +43,7 @@ public class claseAuto {
         System.out.println("Marca: " + marca);
         System.out.println("Modelo: " + modelo);
         System.out.println("Color: " + color);
-        System.out.println("Año: " + año);
+        System.out.println("Año: " + anio);
         System.out.println("Numero de serie: " + nro_serie);
         System.out.println("Tipo combustible: " + tipoCombus);
     }
@@ -58,13 +58,13 @@ public class claseAuto {
         System.out.println("Ingrese color: ");
         String colo = input.nextLine();
         System.out.println("Ingrese año: ");
-        int anio = input.nextInt();
+        int year = input.nextInt();
         input.nextLine();
         System.out.println("Tipo de combustible: ");
         String combu = input.nextLine();
 
     
-        claseAuto a = new claseAuto(mar, mod, colo, anio, combu);
+        claseAuto a = new claseAuto(mar, mod, colo, year, combu);
         a.mostrarDatos();
         a.acelerar();
         System.out.println(mar.length());
