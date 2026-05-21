@@ -70,7 +70,7 @@ public class claseAuto {
         System.out.println(mar.length());
         System.out.println();
 
-        claseAuto a1 = new claseAuto("Nissan", "Note", "Azul", 2026, "Nafta");
+        claseAuto a1 = new claseAuto("Volswagen", "Note", "Azul", 2026, "Nafta");
         a1.mostrarDatos();
         a1.frenar();
         System.out.println("Nissan".length());
