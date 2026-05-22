@@ -30,11 +30,25 @@ public class claseAuto {
         return sb.toString();
     }
 
-    public static String listaMayores(claseAuto a1, claseAuto a2) {
-        for (int i = 0; i < a1.marca.length(); i++) {
-            if (a1.marca.length()>a2.marca.length());
+    public static void listaMayores(claseAuto... autos) {
+        boolean[] usado = new boolean[autos.length];
+
+        System.out.println("Lista");
+
+        for (int posicion = 1; posicion <= autos.length; posicion++) {
+            int indiceMayor = -1;
+
+            for (int i = 0; i < autos.length; i++) {
+                if (!usado[i]) {
+                    if (indiceMayor == -1 ||
+                            autos[i].marca.length() > autos[indiceMayor].marca.length()) {
+                        indiceMayor = i;
+                    }
+                }
             }
-        return a1.marca;
+            usado[indiceMayor] = true;
+            System.out.println(posicion + " - " + autos[indiceMayor].marca + " (" + autos[indiceMayor].marca.length() + " caracteres)");
+        }
     }
 
     public void acelerar() {
@@ -89,7 +103,7 @@ public class claseAuto {
         System.out.println("Tu marca tiene tantos caracteres: " + a2.marca.length());
         System.out.println();
 
-        System.out.println(claseAuto.listaMayores(a1, a2));
+        claseAuto.listaMayores(a, a1, a2);
     }
 
 
