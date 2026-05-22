@@ -75,5 +75,11 @@ public class claseAuto {
         a1.frenar();
         System.out.println("Nissan".length());
         System.out.println();
+
+        claseAuto a2 = new claseAuto("Wolskvagen", "Gol", "Azul", 2019, "Nafta");
+        a2.mostrarDatos();
+        a2.acelerar();
+        System.out.println("Nissan".length());
+        System.out.println();
     }
 }
