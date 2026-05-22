@@ -30,6 +30,13 @@ public class claseAuto {
         return sb.toString();
     }
 
+    public static String listaMayores(claseAuto a1, claseAuto a2) {
+        for (int i = 0; i < a1.marca.length(); i++) {
+            if (a1.marca.length()>a2.marca.length());
+            }
+        return a1.marca;
+    }
+
     public void acelerar() {
         int numero = (int)(Math.random() * 180) + 1;
         System.out.println("Estas yendo a " + numero + "km/h");
@@ -70,16 +77,21 @@ public class claseAuto {
         System.out.println(mar.length());
         System.out.println();
 
-        claseAuto a1 = new claseAuto("Toyota", "Note", "Azul", 2026, "Nafta");
+        claseAuto a1 = new claseAuto("Nissan", "Note", "Azul", 2026, "Nafta");
         a1.mostrarDatos();
         a1.frenar();
-        System.out.println("Nissan".length());
+        System.out.println("Tu marca tiene tantos caracteres: " + a1.marca.length());
         System.out.println();
 
-        claseAuto a2 = new claseAuto("Wolskvagen", "Gol", "Azul", 2019, "Nafta");
+        claseAuto a2 = new claseAuto("Volskwagen", "Gol", "Azul", 2019, "Nafta");
         a2.mostrarDatos();
         a2.acelerar();
-        System.out.println("Nissan".length());
+        System.out.println("Tu marca tiene tantos caracteres: " + a2.marca.length());
         System.out.println();
+
+        System.out.println(claseAuto.listaMayores(a1, a2));
     }
+
+
+
 }
