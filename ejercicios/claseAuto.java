@@ -3,11 +3,11 @@ import java.security.SecureRandom;
 import java.util.*;
 
 public class claseAuto {
-    String marca;
-    String modelo;
-    String color;
-    int anio;
-    String nro_serie;
+     String marca;
+     String modelo;
+     String color;
+     int anio;
+     String nro_serie;
     String tipoCombus;
 
     public claseAuto(String marca, String modelo, String color, int anio, String tipoCombus) {
@@ -60,7 +60,7 @@ public class claseAuto {
         System.out.println("Estas frenado, revisa que tus espejos esten bien antes de acelerar");
     }
 
-    public void mostrarDatos() {
+    public void getDatos() {
         System.out.println("Marca: " + marca);
         System.out.println("Modelo: " + modelo);
         System.out.println("Color: " + color);
@@ -69,6 +69,13 @@ public class claseAuto {
         System.out.println("Tipo combustible: " + tipoCombus);
     }
 
+    private void cambiarAnio(int num){
+        if (num != this.anio){
+            this.anio = num;
+            System.out.println("Se ha cambiado el año del vehiculo");
+        }
+
+    }
     static void main() {
         Scanner input = new Scanner(System.in);
 
@@ -86,20 +93,22 @@ public class claseAuto {
 
     
         claseAuto a = new claseAuto(mar, mod, colo, year, combu);
-        a.mostrarDatos();
+        a.getDatos();
         a.acelerar();
         System.out.println(mar.length());
         System.out.println();
 
         claseAuto a1 = new claseAuto("Nissan", "Note", "Azul", 2026, "Nafta");
-        a1.mostrarDatos();
+        a1.getDatos();
         a1.frenar();
         System.out.println("Tu marca tiene tantos caracteres: " + a1.marca.length());
         System.out.println();
 
         claseAuto a2 = new claseAuto("Volskwagen", "Gol", "Azul", 2019, "Nafta");
-        a2.mostrarDatos();
+        a2.getDatos();
         a2.acelerar();
+        a2.cambiarAnio(2017);
+        System.out.println("Año actual: " + a2.anio);
         System.out.println("Tu marca tiene tantos caracteres: " + a2.marca.length());
         System.out.println();
 
