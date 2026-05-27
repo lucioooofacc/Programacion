@@ -79,24 +79,24 @@ public class claseAuto {
     static void main() {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Ingrese marca: ");
-        String mar = input.nextLine();
-        System.out.println("Ingrese modelo: ");
-        String mod = input.nextLine();
-        System.out.println("Ingrese color: ");
-        String colo = input.nextLine();
-        System.out.println("Ingrese año: ");
-        int year = input.nextInt();
-        input.nextLine();
-        System.out.println("Tipo de combustible: ");
-        String combu = input.nextLine();
-
-    
-        claseAuto a = new claseAuto(mar, mod, colo, year, combu);
-        a.getDatos();
-        a.acelerar();
-        System.out.println(mar.length());
-        System.out.println();
+//        System.out.println("Ingrese marca: ");
+//        String mar = input.nextLine();
+//        System.out.println("Ingrese modelo: ");
+//        String mod = input.nextLine();
+//        System.out.println("Ingrese color: ");
+//        String colo = input.nextLine();
+//        System.out.println("Ingrese año: ");
+//        int year = input.nextInt();
+//        input.nextLine();
+//        System.out.println("Tipo de combustible: ");
+//        String combu = input.nextLine();
+//
+//
+//        claseAuto a = new claseAuto(mar, mod, colo, year, combu);
+//        a.getDatos();
+//        a.acelerar();
+//        System.out.println(mar.length());
+//        System.out.println();
 
         claseAuto a1 = new claseAuto("Nissan", "Note", "Azul", 2026, "Nafta");
         a1.getDatos();
@@ -112,7 +112,7 @@ public class claseAuto {
         System.out.println("Tu marca tiene tantos caracteres: " + a2.marca.length());
         System.out.println();
 
-        claseAuto.listaMayores(a, a1, a2);
+        claseAuto.listaMayores(a1, a2);
     }
 
 
