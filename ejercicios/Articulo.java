@@ -5,7 +5,7 @@ public class Articulo {
     private String codigo;
     private String nombre;
     private String origen;
-    private String precio;
+    private int precio;
     private String descripcion;
 
     public Articulo(String nombre, String origen, String descripcion) {
@@ -31,29 +31,45 @@ public class Articulo {
         System.out.println("Codigo: " + codigo);
         System.out.println("Nombre: " + nombre);
         System.out.println("Origen: " + origen);
-        System.out.println("Precio: " + precio);
+        System.out.println("Precio: " + "$" + precio);
         System.out.println("Descripcion: " + descripcion);
     }
 
-    public String setPrecio() {
+    public int setPrecio() {
             int numero = (int)(Math.random() * 200) + 1;
-        return("$" + numero);
+        return(numero);
     }
 
+//    public void calcularDesc(Articulo...) {
+//        boolean descuento = Articulo.p.descripcion.equals("Producto de China");
+//        System.out.println("Tienes un 10% de descuento! Precio final de: " + (precio - precio*0.10));
+//    }
 
-    static void main() {
+public static void calcularDesc(Articulo... articulos) {
+    for (Articulo p : articulos) {
+        if (p.descripcion.equals("Producto de China")) {
+            double precioFinal = p.precio - p.precio * 0.10;
+            System.out.println(p.nombre + " tiene/n 10% de descuento. Precio final: $" + precioFinal);
+        } else {
+            System.out.println(p.nombre + " no tiene/n descuento.");
+        }
+    }
+}
 
-        Articulo p = new Articulo("Arroz", "BluePatna", "Producto de Uruguay");
+    public static void main(String[] args) {
+
+        Articulo p = new Articulo("Arroz", "Blue Patna", "Producto de Uruguay");
         p.getDatos();
-
+        calcularDesc(p);
         System.out.println();
-
 
         Articulo p1 = new Articulo("Fideos Ramen", "Nisin", "Producto de China");
         p1.getDatos();
-        boolean descuento = p1.descripcion.equals("China");
-        System.out.println(descuento);
-
+        calcularDesc(p1);
         System.out.println();
+
+        Articulo p2 = new Articulo("Alfajor","Portezuelo", "Producto de Uruguay" );
+        p2.getDatos();
+        calcularDesc(p2);
     }
 }
