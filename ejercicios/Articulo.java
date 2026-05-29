@@ -43,7 +43,7 @@ public class Articulo {
 
 public static void calcularDesc(Articulo... articulos) {
     for (Articulo p : articulos) {
-        if (p.descripcion.equals("Producto de China")) {
+        if (p.descripcion.equalsIgnoreCase("Producto de China")) {
             double precioFinal = p.precio - p.precio * 0.10;
             System.out.println(p.nombre + " tiene/n 10% de descuento. Precio final: $" + precioFinal);
         } else {
@@ -60,7 +60,6 @@ public static void calcularDesc(Articulo... articulos) {
         System.out.println("Ingrese origen: ");
         String ori = input.nextLine();
         System.out.println("Ingrese descripcion: ");
-        input.nextLine();
         String desc = input.nextLine();
 
         Articulo p = new Articulo(pro, ori, desc);
