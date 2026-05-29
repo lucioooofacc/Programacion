@@ -1,4 +1,5 @@
 package programacion.ejercicios;
+import java.util.*;
 import java.security.SecureRandom;
 
 public class Articulo {
@@ -9,14 +10,14 @@ public class Articulo {
     private String descripcion;
 
     public Articulo(String nombre, String origen, String descripcion) {
-        this.codigo = generarNroSerie();
+        this.codigo = setNroSerie();
         this.nombre = nombre;
         this.origen = origen;
         this.precio = setPrecio();
         this.descripcion = descripcion;
     }
 
-    private String generarNroSerie() {
+    private String setNroSerie() {
         SecureRandom random = new SecureRandom();
         String caracteres = "123456789";
         int longitud = 9;
@@ -40,11 +41,6 @@ public class Articulo {
         return(numero);
     }
 
-//    public void calcularDesc(Articulo...) {
-//        boolean descuento = Articulo.p.descripcion.equals("Producto de China");
-//        System.out.println("Tienes un 10% de descuento! Precio final de: " + (precio - precio*0.10));
-//    }
-
 public static void calcularDesc(Articulo... articulos) {
     for (Articulo p : articulos) {
         if (p.descripcion.equals("Producto de China")) {
@@ -57,19 +53,29 @@ public static void calcularDesc(Articulo... articulos) {
 }
 
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-        Articulo p = new Articulo("Arroz", "Blue Patna", "Producto de Uruguay");
+        System.out.println("Ingrese nombre de producto: ");
+        String pro = input.nextLine();
+        System.out.println("Ingrese origen: ");
+        String ori = input.nextLine();
+        System.out.println("Ingrese descripcion: ");
+        input.nextLine();
+        String desc = input.nextLine();
+
+        Articulo p = new Articulo(pro, ori, desc);
         p.getDatos();
         calcularDesc(p);
         System.out.println();
 
-        Articulo p1 = new Articulo("Fideos Ramen", "Nisin", "Producto de China");
+        Articulo p1 = new Articulo("Arroz", "Blue Patna", "Producto de Uruguay");
         p1.getDatos();
         calcularDesc(p1);
         System.out.println();
 
-        Articulo p2 = new Articulo("Alfajor","Portezuelo", "Producto de Uruguay" );
+        Articulo p2 = new Articulo("Fideos Ramen", "Nisin", "Producto de China");
         p2.getDatos();
         calcularDesc(p2);
+        System.out.println();
     }
 }
