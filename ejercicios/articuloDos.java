@@ -41,17 +41,17 @@ public class articuloDos {
         System.out.println("Descripcion: " + descripcion);
         System.out.println("Precio: " + precio + " USD");
         System.out.println("Origen: " + origen);
-        System.out.println("Peso: " + peso);
+        System.out.println("Peso: " + peso + "kg");
     }
 
     public double setPrecio() {
         double numero = (double) (Math.random() * 250) + 1;
-        return numero;
+        return Math.round(numero * 100.0) / 100.0;
     }
 
     public double setPeso() {
         double pesaje = (double) (Math.random() * 20) + 1;
-        return pesaje;
+        return Math.round(pesaje * 100.0) / 100.0;
     }
 
     public static double pasarAPesos(articuloDos... precios) {
@@ -62,10 +62,18 @@ public class articuloDos {
         return precioUYU;
     }
 
+    public static double calcularMasIVA(articuloDos... iva) {
+        double precioIVA = 0;
+        for (articuloDos p : iva) {
+            precioIVA = p.precio + (p.precio*23)/100;
+        }
+        return precioIVA;
+    }
+
 
     public static void mostrarSegunOrig(articuloDos... articulos) {
         for (articuloDos p : articulos) {
-            if (p.descripcion.equalsIgnoreCase("Producto de China") && p.precio*40>=5000 && p.precio*40<=9999 ) {
+            if (p.descripcion.equalsIgnoreCase("Producto de China") && p.precio*40>=5000 && p.precio*40<=9999) {
                 System.out.println("Es de china: " + p.nombre + "y esta en el rango de precio");
 
             }
@@ -77,7 +85,8 @@ public class articuloDos {
     static void main(String []args) {
         articuloDos p = new articuloDos("Arroz", "Blue Patna", "Producto de Uruguay");
         p.getDatos();
-        System.out.println("Precio en uyu" + pasarAPesos(p));
+        System.out.println("Precio en UYU: " + pasarAPesos(p));
+        System.out.println("Precio + IVA: " + calcularMasIVA(p));
         System.out.println();
 
     }
