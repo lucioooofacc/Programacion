@@ -1,10 +1,6 @@
 package programacion.ejercicios;
-import com.sun.source.tree.UsesTree;
 
-import java.util.*;
 import java.security.SecureRandom;
-
-import static programacion.ejercicios.Articulo.calcularDesc;
 
 public class articuloDos {
 
@@ -59,7 +55,7 @@ public class articuloDos {
         for (articuloDos p : precios) {
             precioUYU = p.precio * 40;
         }
-        return precioUYU;
+        return Math.round(precioUYU * 100.0) / 100.0;
     }
 
     public static double calcularMasIVA(articuloDos... iva) {
@@ -67,26 +63,26 @@ public class articuloDos {
         for (articuloDos p : iva) {
             precioIVA = p.precio + (p.precio*23)/100;
         }
-        return precioIVA;
+        return Math.round(precioIVA * 100.0) / 100.0;
     }
 
 
     public static void mostrarSegunOrig(articuloDos... articulos) {
         for (articuloDos p : articulos) {
-            if (p.descripcion.equalsIgnoreCase("Producto de China") && p.precio*40>=5000 && p.precio*40<=9999) {
-                System.out.println("Es de china: " + p.nombre + "y esta en el rango de precio");
-
+            if (p.origen.equalsIgnoreCase("Producto de China") && p.precio*40>=5000 && p.precio*40<=9999) {
+                System.out.println("El producto " + p.nombre + " es de China y se encuentra en el rango de precio");
+            } else{
+                System.out.println("No cumples la condicion");
             }
-
-
         }
     }
 
     static void main(String []args) {
-        articuloDos p = new articuloDos("Arroz", "Blue Patna", "Producto de Uruguay");
+        articuloDos p = new articuloDos("Arroz", "Blue Patna", "Producto de China");
         p.getDatos();
         System.out.println("Precio en UYU: " + pasarAPesos(p));
-        System.out.println("Precio + IVA: " + calcularMasIVA(p));
+        System.out.println("Precio + IVA: " + calcularMasIVA(p) + " USD");
+        mostrarSegunOrig(p);
         System.out.println();
 
     }
