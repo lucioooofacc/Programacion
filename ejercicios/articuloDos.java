@@ -86,5 +86,12 @@ public class articuloDos {
         mostrarSegunOrig(p);
         System.out.println();
 
+        articuloDos p1 = new articuloDos("Leche", "Parmalat", "Producto de Uruguay");
+        p1.getDatos();
+        System.out.println("Precio en UYU: " + pasarAPesos(p1));
+        System.out.println("Precio + IVA: " + calcularMasIVA(p1) + " USD");
+        mostrarSegunOrig(p1);
+        System.out.println();
+
     }
 }
