@@ -40,12 +40,12 @@ public class articuloDos {
         System.out.println("Peso: " + peso + "kg");
     }
 
-    public double setPrecio() {
+    private double setPrecio() {
         double numero = (double) (Math.random() * 250) + 1;
         return Math.round(numero * 100.0) / 100.0;
     }
 
-    public double setPeso() {
+    private double setPeso() {
         double pesaje = (double) (Math.random() * 20) + 1;
         return Math.round(pesaje * 100.0) / 100.0;
     }
@@ -69,7 +69,8 @@ public class articuloDos {
 
     public static void mostrarSegunOrig(articuloDos... articulos) {
         for (articuloDos p : articulos) {
-            if (p.origen.equalsIgnoreCase("Producto de China") && p.precio*40>=5000 && p.precio*40<=9999) {
+            double precioEnPesos = pasarAPesos(p);
+            if (p.origen.equalsIgnoreCase("Producto de China") && (precioEnPesos > 5000 && precioEnPesos < 9999)) {
                 System.out.println("El producto " + p.nombre + " es de China y se encuentra en el rango de precio");
             } else{
                 System.out.println("No cumples la condicion");
