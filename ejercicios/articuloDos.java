@@ -1,5 +1,5 @@
 package programacion.ejercicios;
-
+import java.util.*;
 import java.security.SecureRandom;
 
 public class articuloDos {
@@ -41,12 +41,12 @@ public class articuloDos {
     }
 
     private double setPrecio() {
-        double numero = (double) (Math.random() * 250) + 1;
+        double numero = (Math.random() * 250) + 1;
         return Math.round(numero * 100.0) / 100.0;
     }
 
     private double setPeso() {
-        double pesaje = (double) (Math.random() * 20) + 1;
+        double pesaje = (Math.random() * 20) + 1;
         return Math.round(pesaje * 100.0) / 100.0;
     }
 
@@ -72,13 +72,12 @@ public class articuloDos {
             double precioEnPesos = pasarAPesos(p);
             if (p.origen.equalsIgnoreCase("Producto de China") && (precioEnPesos > 5000 && precioEnPesos < 9999)) {
                 System.out.println("El producto " + p.nombre + " es de China y se encuentra en el rango de precio");
-            } else{
-                System.out.println("No cumples la condicion");
             }
         }
     }
 
     static void main(String []args) {
+        Scanner input = new Scanner(System.in);
         articuloDos p = new articuloDos("Arroz", "Blue Patna", "Producto de China");
         p.getDatos();
         System.out.println("Precio en UYU: " + pasarAPesos(p));
@@ -91,6 +90,20 @@ public class articuloDos {
         System.out.println("Precio en UYU: " + pasarAPesos(p1));
         System.out.println("Precio + IVA: " + calcularMasIVA(p1) + " USD");
         mostrarSegunOrig(p1);
+        System.out.println();
+
+        System.out.println("Ingrese nombre de producto: ");
+        String nom = input.nextLine();
+        System.out.println("Ingrese marca de producto: ");
+        String mar = input.nextLine();
+        System.out.println("Ingrese origen de producto: ");
+        String ori = input.nextLine();
+
+        articuloDos p2 = new articuloDos(nom, mar, ori);
+        p2.getDatos();
+        System.out.println("Precio en UYU: " + pasarAPesos(p2));
+        System.out.println("Precio + IVA: " + calcularMasIVA(p2) + " USD");
+        mostrarSegunOrig(p2);
         System.out.println();
 
     }
