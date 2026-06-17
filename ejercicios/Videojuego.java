@@ -59,7 +59,7 @@ class Guerrero extends Personaje{
 }
 
 class Mago extends Personaje{
-    int mana;
+    private int mana;
     public Mago(String nombre, int salud,   int  inteligencia, int escudo, int mana) {
         super(nombre, salud, inteligencia, escudo);
         this.mana = mana;
@@ -67,8 +67,8 @@ class Mago extends Personaje{
     public void lanzarHechizo(){
         System.out.println(getNombre() + " esta lanzando un hechizo");
     }
-    public void getMana(){
-        System.out.println(getNombre() + " tiene " + mana + " de mana");
+    public int getMana(){
+        return mana;
     }
 }
 
@@ -77,7 +77,7 @@ public class Videojuego{
 public static void main(String[] args) {
     Mago miMago = new Mago("Pablo Shazam", 100, 70, 80, 50);
     miMago.lanzarHechizo();
-    miMago.getMana();
+    System.out.println(miMago.getNombre() + " tiene " + miMago.getMana() + " de mana");
 
     Guerrero miGuerrero = new Guerrero ("Hercules", 70, 30, 90);
     miGuerrero.usarEspada();
