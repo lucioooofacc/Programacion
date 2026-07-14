@@ -1,4 +1,5 @@
 package programacion.ParcialSemestre;
+import java.util.ArrayList;
 class Personaje {
     private String nombre;
     private int salud;
@@ -60,12 +61,20 @@ class Guerrero extends Personaje {
 class Mago extends Personaje {
     private int mana;
     private int inteligencia;
+    ArrayList<hechizo> hechizos = new ArrayList<>();
 public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
          this.inteligencia = inteligencia;
-    }
-    public void recuperarMana(){
+}
 
+    public void recuperarMana(){
+        System.out.println(getNombre() + "esta recuperando mana");
+    }
+
+    public void lanzarHechizo(String [] hechizos){
+    if (hechizos.equals("Bola de fuego")){
+    System.out.println(getNombre() + "esta lanzando hechizo");
+    }
     }
 }
