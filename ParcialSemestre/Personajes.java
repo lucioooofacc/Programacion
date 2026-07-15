@@ -1,7 +1,7 @@
 package programacion.ParcialSemestre;
 import java.util.ArrayList;
 class Personaje {
-    private String nombre;
+    private static String nombre;
     private int salud;
     private int nivel;
 
@@ -15,7 +15,7 @@ class Personaje {
         System.out.println(nombre + "esta atacando");
     }
 
-    public String getNombre(){
+    public static String getNombre(){
         return nombre;
     }
 
@@ -61,7 +61,6 @@ class Guerrero extends Personaje {
 class Mago extends Personaje {
     private int mana;
     private int inteligencia;
-    ArrayList<hechizo> hechizos = new ArrayList<>();
 public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
@@ -72,9 +71,7 @@ public Mago(String nombre, int salud, int mana, int inteligencia){
         System.out.println(getNombre() + "esta recuperando mana");
     }
 
-    public void lanzarHechizo(String [] hechizos){
-    if (hechizos.equals("Bola de fuego")){
-    System.out.println(getNombre() + "esta lanzando hechizo");
+    public usarObjetoMagico(objeto objetoMagico){
+
     }
     }
-}
