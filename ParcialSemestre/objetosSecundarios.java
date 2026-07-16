@@ -1,10 +1,14 @@
 package programacion.ParcialSemestre;
+import java.util.ArrayList;
+import java.util.List;
+
 public class objetosSecundarios {
 }
 
- class Mascota{
+class Mascota{
     private String nombre;
     private int lealtad;
+    private Guerrero guerrero;
 
     public Mascota (String nombre, int lealtad){
         this.nombre = nombre;
@@ -19,40 +23,68 @@ public class objetosSecundarios {
         this.lealtad = lealtad;
     }
 
-    public void acompaniar(){
-        System.out.println(nombre + " esta acompañando a " + Personaje.getNombre());
+    public void asignarGuerrero(Guerrero guerrero){
+        this.guerrero = guerrero;
     }
- }
 
- class Inventario{
-    private int[] capacidad;
+    public void acompaniar(){
+        System.out.println(nombre + " esta acompañando a " + guerrero.getNombre());
+    }
+}
+
+class Inventario{
+    private int capacidad;
+    private List<String> items = new ArrayList<>();
+
     public Inventario (int capacidad){
-        this.capacidad = new int[]{capacidad};
+        this.capacidad = capacidad;
     }
 
     public void agregarItem(String item){
-        if (capacidad)
+        if (items.size() < capacidad){
+            items.add(item);
+        } else {
+            System.out.println("Inventario lleno");
+        }
     }
 
-    public void consultarInventario(String[]){
-
+    public String[] consultarInventario(){
+        return items.toArray(new String[0]);
     }
- }
 
- class objetoMagico{
+    public int  getCapacidad(){
+        return capacidad;
+    }
+}
+
+class ObjetoMagico{
     private String nombre;
     private String tipo;
-    private int durabilidad;
     private int potencia;
+    private int durabilidad;
+    private int durabilidadMaxima;
 
-    public objetoMagico(String nombre, String tipo, int durabilidad, int potencia){
+    public ObjetoMagico(String nombre, String tipo, int potencia, int durabilidad){
         this.nombre = nombre;
         this.tipo = tipo;
-        this.durabilidad = durabilidad;
         this.potencia = potencia;
+        this.durabilidad = durabilidad;
+        this.durabilidadMaxima = durabilidad;
     }
 
+    public void usar(){
+        if (durabilidad > 0){
+            durabilidad--;
+        } else{
+            System.out.println(nombre + " esta inutilizable, hay que repararlo");
+        }
+    }
 
+    public void reparar(){
+        durabilidad = durabilidadMaxima;
+    }
 
-
- }
+    public int getPotencia(){
+        return potencia;
+    }
+}
