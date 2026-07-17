@@ -58,13 +58,13 @@ class Guerrero extends Personaje {
     }
 
     public void usarEspada(){
-        System.out.println(getNombre() + " esta usando la espada");
+        System.out.println(getNombre() + " ha hecho " + (fuerza + getNivel()) + " de daño");
     }
     public void gritarDesafio(){
-        System.out.println(getNombre() + " esta gritando desafio");
+        System.out.println(getNombre() + " esta gritando desafio! Su defensa aumenta a " + (defensa + 1));
     }
     public void gritarGuerra(){
-        System.out.println(getNombre() + " esta gritando guerra");
+        System.out.println(getNombre() + " esta gritando guerra, su fuerza esta a " +  (fuerza + 3));
     }
     public void asignarMascota(Mascota mascota){
         this.mascota = mascota;
@@ -75,6 +75,7 @@ class Mago extends Personaje {
     private int mana;
     private int inteligencia;
     private List<ObjetoMagico> objetos = new ArrayList<>();
+    private List<String> hechizosConocidos = new ArrayList<>();
 public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
@@ -88,4 +89,29 @@ public Mago(String nombre, int salud, int mana, int inteligencia){
     public void usarObjetoMagico(ObjetoMagico objeto){
         objeto.usar();
     }
+
+    public void aprenderHechizo(String hechizo) {
+        hechizosConocidos.add(hechizo);
+    }
+
+    public void lanzarHechizos(String hechizo){
+    if (!hechizosConocidos.contains(hechizo)){
+        System.out.println(getNombre() + " no conoce el hechizo " + hechizo);
+    } else if (mana < 10){
+        System.out.println(getNombre() + " no tiene mana suficiente");
+    } else{
+        mana -= 10;
+        System.out.println(getNombre() + " lanza " + hechizo + " (mana restante: " + mana + ")");
+    }
+    }
+
+    public void invocarElemento(String elemento){
+    if (mana < 20){
+        System.out.println(getNombre() + " no tiene mana suficiente para invocar");
+    } else {
+        mana -= 20;
+        System.out.println(getNombre() + " invoca al elemental de " + elemento);
+    }
+    }
+
 }
