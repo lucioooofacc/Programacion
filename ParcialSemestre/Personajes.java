@@ -6,8 +6,6 @@ class Personaje {
     private String nombre;
     private int salud;
     private int nivel;
-    private Inventario inventario;
-
     public Personaje(String nombre, int salud){
         this.nombre = nombre;
         this.salud = salud;
@@ -39,12 +37,7 @@ class Personaje {
     public void setNivel(int nivel){
         this.nivel = nivel;
     }
-    public Inventario getInventario(){
-        return inventario;
-    }
-    public void setInventario(Inventario inventario){
-        this.inventario = inventario;
-    }
+
 }
 
 class Guerrero extends Personaje {
@@ -74,9 +67,10 @@ class Guerrero extends Personaje {
 class Mago extends Personaje {
     private int mana;
     private int inteligencia;
-    private List<ObjetoMagico> objetos = new ArrayList<>();
-    private List<String> hechizosConocidos = new ArrayList<>();
-public Mago(String nombre, int salud, int mana, int inteligencia){
+    private Inventario inventario;
+    private List<objetoMagico> objetos = new ArrayList<>();
+//    String[] hechizos = new String[0];
+    public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
          this.inteligencia = inteligencia;
@@ -86,23 +80,12 @@ public Mago(String nombre, int salud, int mana, int inteligencia){
         System.out.println(getNombre() + " esta recuperando mana");
     }
 
-    public void usarObjetoMagico(ObjetoMagico objeto){
+    public void usarObjetoMagico(objetoMagico objeto){
         objeto.usar();
     }
 
-    public void aprenderHechizo(String hechizo) {
-        hechizosConocidos.add(hechizo);
-    }
-
-    public void lanzarHechizos(String hechizo){
-    if (!hechizosConocidos.contains(hechizo)){
-        System.out.println(getNombre() + " no conoce el hechizo " + hechizo);
-    } else if (mana < 10){
-        System.out.println(getNombre() + " no tiene mana suficiente");
-    } else{
-        mana -= 10;
-        System.out.println(getNombre() + " lanza " + hechizo + " (mana restante: " + mana + ")");
-    }
+    public void aprenderHechizos(int cant, String[] hechizos){
+        hechizos = new String[cant];
     }
 
     public void invocarElemento(String elemento){
@@ -112,6 +95,13 @@ public Mago(String nombre, int salud, int mana, int inteligencia){
         mana -= 20;
         System.out.println(getNombre() + " invoca al elemental de " + elemento);
     }
+    }
+
+    public Inventario getInventario(){
+        return inventario;
+    }
+    public void setInventario(Inventario inventario){
+        this.inventario = inventario;
     }
 
 }

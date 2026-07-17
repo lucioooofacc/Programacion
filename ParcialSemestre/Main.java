@@ -1,5 +1,4 @@
 package programacion.ParcialSemestre;
-import java.sql.SQLOutput;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Main {
@@ -31,22 +30,6 @@ public class Main {
                     guerrero.asignarMascota(mascota);
                     mascota.asignarGuerrero(guerrero);
                     mascota.acompaniar();
-
-                    System.out.println("Desea establecer su inventario? (true/false)");
-                    boolean answer = input.nextBoolean();
-                    input.nextLine();
-
-                    if (answer){
-                        Inventario inventario = new Inventario(5);
-
-                        for (int i = 0; i < inventario.getCapacidad(); i++) {
-                            System.out.println("Ingrese el item " + (i + 1) + " de " + inventario.getCapacidad() + ": ");
-                            String item = input.nextLine();
-                            inventario.agregarItem(item);
-                        }
-
-                        System.out.println("Inventario lleno: " + Arrays.toString(inventario.consultarInventario()));
-                    }
                 break;
 
                 case 2:
@@ -61,7 +44,7 @@ public class Main {
                     System.out.println("Defina el tipo de arma que es su objeto magico: ");
                     String type_obj = input.nextLine();
 
-                    ObjetoMagico objeto = new ObjetoMagico(magic_obj, type_obj, 200, 5);
+                    objetoMagico objeto = new objetoMagico(magic_obj, type_obj, 200, 5);
                     System.out.println("Potencia de " + magic_obj + " "+  objeto.getPotencia());
 
                     System.out.println("Desea establecer su inventario? (true/false)");
@@ -79,6 +62,20 @@ public class Main {
 
                         System.out.println("Inventario lleno: " + Arrays.toString(inventario_mag.consultarInventario()));
                     }
+
+//                    System.out.println("Desea establecer sus hechizos? true/false");
+//                    boolean answer_spells = input.nextBoolean();
+//
+//                            if(answer_spells){
+//                                System.out.println("Cuantos hechizos desea saber?: ");
+//                                int cant = input.nextInt();
+//
+//                                for (int i = 0; i < hechizos.length; i++) {
+//                                    System.out.println("Ingrese el hechizo numero " + (i + 1) + ":");
+//                                    hechizos[i] = input.nextLine();
+//                                }
+//                            }
+//                    System.out.println("Sus opciones son: " + Arrays.toString(hechizos));
                 break;
 
                 default:
