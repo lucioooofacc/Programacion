@@ -13,7 +13,7 @@ class Personaje {
     }
 
     public void atacar(){
-        System.out.println(nombre + "esta atacando");
+        System.out.println(nombre + " esta atacando");
     }
 
     public String getNombre(){
