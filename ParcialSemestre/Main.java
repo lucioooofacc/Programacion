@@ -21,8 +21,6 @@ public class Main {
 
 
                     Guerrero guerrero = new Guerrero(name_war, 100, 80, 40);
-                    guerrero.usarEspada();
-                    guerrero.gritarDesafio();
 
                     System.out.println("Coloquele nombre a su mascota: ");
                     String pet_name =  input.nextLine();
@@ -67,8 +65,10 @@ public class Main {
                     String magic_obj = input.nextLine();
                     System.out.println("Defina el tipo de arma que es su objeto magico: ");
                     String type_obj = input.nextLine();
+                    System.out.println("Establezca potencia de objeto magico");
+                    int obj_power = input.nextInt();
 
-                    objetoMagico objeto = new objetoMagico(magic_obj, type_obj, 200, 5);
+                    objetoMagico objeto = new objetoMagico(magic_obj, type_obj, obj_power, 5);
                     System.out.println("Potencia de " + magic_obj + " "+  objeto.getPotencia());
 
                     int accion_mag;
@@ -115,20 +115,6 @@ public class Main {
 
 
                     } while (accion_mag != 0);
-
-//                    System.out.println("Desea establecer sus hechizos? true/false");
-//                    boolean answer_spells = input.nextBoolean();
-//
-//                            if(answer_spells){
-//                                System.out.println("Cuantos hechizos desea saber?: ");
-//                                int cant = input.nextInt();
-//
-//                                for (int i = 0; i < hechizos.length; i++) {
-//                                    System.out.println("Ingrese el hechizo numero " + (i + 1) + ":");
-//                                    hechizos[i] = input.nextLine();
-//                                }
-//                            }
-//                    System.out.println("Sus opciones son: " + Arrays.toString(hechizos));
                 break;
 
                 default:

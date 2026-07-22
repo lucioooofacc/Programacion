@@ -53,6 +53,7 @@ class Guerrero extends Personaje {
     public void usarEspada(){
         System.out.println(getNombre() + " ha hecho " + (fuerza + getNivel()) + " de daño");
     }
+
     public void gritarDesafio(){
         System.out.println(getNombre() + " esta gritando desafio! Su defensa aumenta a " + (defensa + 1));
     }
@@ -66,6 +67,7 @@ class Guerrero extends Personaje {
 
 class Mago extends Personaje {
     private int mana;
+    private int manaMax;
     private int inteligencia;
     private Inventario inventario;
     private List<objetoMagico> objetos = new ArrayList<>();
@@ -78,15 +80,13 @@ class Mago extends Personaje {
 
     public void recuperarMana(){
         System.out.println(getNombre() + " esta recuperando mana");
+        mana = manaMax;
     }
 
     public void usarObjetoMagico(objetoMagico objeto){
         objeto.usar();
     }
 
-    public void aprenderHechizos(int cant, String[] hechizos){
-        hechizos = new String[cant];
-    }
 
     public void invocarElemento(String elemento){
     if (mana < 20){
