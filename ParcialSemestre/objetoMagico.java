@@ -12,7 +12,6 @@ public class objetoMagico {
         this.tipo = tipo;
         this.potencia = potencia;
         this.durabilidad = durabilidad;
-        this.durabilidadMaxima = durabilidad;
     }
 
     public void usar(){
@@ -24,7 +23,12 @@ public class objetoMagico {
     }
 
     public void reparar(){
-        durabilidad = durabilidadMaxima;
+        if(durabilidad == durabilidadMaxima){
+            System.out.println(nombre + " ya esta reparado");
+        } else {
+            System.out.println(nombre + " ha sido reparado");
+            durabilidad = durabilidadMaxima;
+        }
     }
 
     public int getPotencia(){

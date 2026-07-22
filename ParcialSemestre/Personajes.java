@@ -71,7 +71,7 @@ class Mago extends Personaje {
     private int inteligencia;
     private Inventario inventario;
     private List<objetoMagico> objetos = new ArrayList<>();
-//    String[] hechizos = new String[0];
+    String[] hechizos = new String[3];
     public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
@@ -79,8 +79,12 @@ class Mago extends Personaje {
 }
 
     public void recuperarMana(){
+        if (mana == manaMax){
+            System.out.println(getNombre() + " tiene la capacidad de mana al mango");
+        } else{
         System.out.println(getNombre() + " esta recuperando mana");
         mana = manaMax;
+        }
     }
 
     public void usarObjetoMagico(objetoMagico objeto){
@@ -104,4 +108,9 @@ class Mago extends Personaje {
         this.inventario = inventario;
     }
 
+    public void lanzarHechizo(String hechizo){
+        hechizos[0] = "Llama acalambrante";
+        hechizos[1] = "Llamado de las tinieblas";
+        hechizos[2] = "Agua ardiente";
+    }
 }

@@ -7,7 +7,7 @@ public class Main {
 
         int op;
         do{
-            System.out.println("Elija un personaje");
+            System.out.println("\nElija un personaje");
             System.out.println("1. Guerrero");
             System.out.println("2. Mago");
             System.out.println("3. Salir");
@@ -16,9 +16,8 @@ public class Main {
             input.nextLine();
             switch (op){
                 case 1:
-                    System.out.println("Ingrese nombre de guerrero: ");
+                    System.out.println("\nIngrese nombre de guerrero: ");
                     String name_war = input.nextLine();
-
 
                     Guerrero guerrero = new Guerrero(name_war, 100, 80, 40);
 
@@ -52,11 +51,16 @@ public class Main {
                             case 0: System.out.println("Volviendo al menu principal..."); break;
                             default: System.out.println("Opcion no valida");
                         }
+                        if (accion_war!=0){
+                            System.out.println("\nPresione ENTER para continuar...");
+                            input.nextLine();
+                        }
+
                     } while (accion_war != 0);
                 break;
 
                 case 2:
-                    System.out.println("Ingrese el nombre de su mago: ");
+                    System.out.println("\nIngrese el nombre de su mago: ");
                     String wizard_name  = input.nextLine();
 
                     Mago mago = new Mago (wizard_name, 100, 70, 40);
@@ -65,10 +69,8 @@ public class Main {
                     String magic_obj = input.nextLine();
                     System.out.println("Defina el tipo de arma que es su objeto magico: ");
                     String type_obj = input.nextLine();
-                    System.out.println("Establezca potencia de objeto magico");
-                    int obj_power = input.nextInt();
 
-                    objetoMagico objeto = new objetoMagico(magic_obj, type_obj, obj_power, 5);
+                    objetoMagico objeto = new objetoMagico(magic_obj, type_obj, 200, 5);
                     System.out.println("Potencia de " + magic_obj + " "+  objeto.getPotencia());
 
                     int accion_mag;
@@ -81,10 +83,14 @@ public class Main {
                         System.out.println("5. Reparar objeto magico");
                         System.out.println("6. Ver salud");
                         System.out.println("7. Establecer inventario");
+                        System.out.println("8. Consultar inventario");
+                        System.out.println("9. Tirar hechizo");
                         System.out.println("0. Volver al menu principal");
                         System.out.print("Ingrese su opcion aqui: ");
                         accion_mag = input.nextInt();
                         input.nextLine();
+                        Inventario inventario_mag = new Inventario(3);
+
 
                         switch (accion_mag){
                             case 1: mago.atacar(); break;
@@ -97,11 +103,9 @@ public class Main {
                             case 4: mago.usarObjetoMagico(objeto); break;
                             case 5:
                                 objeto.reparar();
-                                System.out.println(magic_obj + " ha sido reparado");
                             break;
                             case 6: System.out.println("Salud de " + mago.getNombre() + ": " + mago.getSalud()); break;
                             case 7:
-                                Inventario inventario_mag = new Inventario(5);
                                 for (int i = 0; i < inventario_mag.getCapacidad(); i++) {
                                     System.out.println("Ingrese el item " + (i + 1) + " de " + inventario_mag.getCapacidad() + ": ");
                                     String item = input.nextLine();
@@ -109,8 +113,20 @@ public class Main {
                                 }
                                 System.out.println("Inventario lleno: " + Arrays.toString(inventario_mag.consultarInventario()));
                                 break;
+                            case 8:
+                                System.out.println("Contenido: " + Arrays.toString(inventario_mag.consultarInventario()));
+                                break;
+                            case 9:
+                                System.out.print("Que hechizo desea lanzar? (Llama acalambrante, Llamado de las tinieblas, Agua ardiente): ");
+                                String hechizo = input.nextLine();
+                                mago.invocarElemento(hechizo);
                             case 0: System.out.println("Volviendo al menu principal..."); break;
                             default: System.out.println("Opcion no valida");
+                        }
+
+                        if (accion_mag!=0){
+                            System.out.println("\nPresione ENTER para continuar...");
+                            input.nextLine();
                         }
 
 
