@@ -1,4 +1,5 @@
 package programacion.ParcialSemestre;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,12 +72,16 @@ class Mago extends Personaje {
     private int inteligencia;
     private Inventario inventario;
     private List<objetoMagico> objetos = new ArrayList<>();
-    String[] hechizos = new String[3];
+    String[] hechizos = {"Llama acalambrante", "Llamado de las tinieblas", "Agua ardiente"};
     public Mago(String nombre, int salud, int mana, int inteligencia){
       super(nombre, salud);
          this.mana = mana;
+         this.manaMax = mana;
          this.inteligencia = inteligencia;
 }
+    public int getMana(){
+        return mana;
+    }
 
     public void recuperarMana(){
         if (mana == manaMax){
@@ -89,6 +94,7 @@ class Mago extends Personaje {
 
     public void usarObjetoMagico(objetoMagico objeto){
         objeto.usar();
+        System.out.println(objeto.getNombre() + " ha sido usado y ha hecho " + (objeto.getPotencia() + getNivel()) + " de daño");
     }
 
 
@@ -108,9 +114,19 @@ class Mago extends Personaje {
         this.inventario = inventario;
     }
 
-    public void lanzarHechizo(String hechizo){
-        hechizos[0] = "Llama acalambrante";
-        hechizos[1] = "Llamado de las tinieblas";
-        hechizos[2] = "Agua ardiente";
+    public void lanzarHechizo(String[] hechizos, String entrada){
+        if (inteligencia < 50){
+            System.out.println("No eres lo suficientemente inteligente, " + getNombre());
+        } else{
+        String hechizoTrimeado = entrada.trim();
+
+        for (int i = 0; i < hechizos.length; i++) {
+                 if (hechizos[i].equalsIgnoreCase(hechizoTrimeado) && mana > 40){
+                    System.out.println(getNombre() + " esta lanzando " + hechizos[i]);
+                    return;
+                }
+            }
+        System.out.println("No sabes ese hechizo, " + getNombre());
+        }
     }
 }

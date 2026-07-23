@@ -12,6 +12,7 @@ public class objetoMagico {
         this.tipo = tipo;
         this.potencia = potencia;
         this.durabilidad = durabilidad;
+        this.durabilidadMaxima = durabilidad;
     }
 
     public void usar(){
@@ -29,6 +30,7 @@ public class objetoMagico {
             System.out.println(nombre + " ha sido reparado");
             durabilidad = durabilidadMaxima;
         }
+        System.out.println("Durabilidad actual: " + durabilidad);
     }
 
     public int getPotencia(){
@@ -38,5 +40,10 @@ public class objetoMagico {
     public void setPotencia(int potencia){
         this.potencia = potencia;
     }
+
+    public String getNombre(){
+        return nombre;
+    }
 }
+
 

@@ -38,7 +38,7 @@ public class Main {
                         System.out.println("4. Gritar guerra");
                         System.out.println("5. Ver salud");
                         System.out.println("0. Volver al menu principal");
-                        System.out.print("Ingrese su opcion aqui: ");
+                        System.out.print("Ingrese su opcion debajo: \n");
                         accion_war = input.nextInt();
                         input.nextLine();
 
@@ -52,7 +52,7 @@ public class Main {
                             default: System.out.println("Opcion no valida");
                         }
                         if (accion_war!=0){
-                            System.out.println("\nPresione ENTER para continuar...");
+                            System.out.println("\nPresione ENTER para continuar");
                             input.nextLine();
                         }
 
@@ -63,11 +63,11 @@ public class Main {
                     System.out.println("\nIngrese el nombre de su mago: ");
                     String wizard_name  = input.nextLine();
 
-                    Mago mago = new Mago (wizard_name, 100, 70, 40);
+                    Mago mago = new Mago (wizard_name, 100, 100, 30);
 
-                    System.out.println("Defina su objeto magico: ");
+                    System.out.println("Dale nombre a tu objeto magico: ");
                     String magic_obj = input.nextLine();
-                    System.out.println("Defina el tipo de arma que es su objeto magico: ");
+                    System.out.println("Defina el tipo de arma que es " + magic_obj + ": ");
                     String type_obj = input.nextLine();
 
                     objetoMagico objeto = new objetoMagico(magic_obj, type_obj, 200, 5);
@@ -75,6 +75,8 @@ public class Main {
 
                     int accion_mag;
                     do {
+                        System.out.println("\nMana restante: " + mago.getMana());
+
                         System.out.println("\nQue queres hacer, " + mago.getNombre() + "?");
                         System.out.println("1. Atacar");
                         System.out.println("2. Recuperar mana");
@@ -86,7 +88,7 @@ public class Main {
                         System.out.println("8. Consultar inventario");
                         System.out.println("9. Tirar hechizo");
                         System.out.println("0. Volver al menu principal");
-                        System.out.print("Ingrese su opcion aqui: ");
+                        System.out.print("Ingrese su opcion debajo: \n");
                         accion_mag = input.nextInt();
                         input.nextLine();
                         Inventario inventario_mag = new Inventario(3);
@@ -118,21 +120,24 @@ public class Main {
                                 break;
                             case 9:
                                 System.out.print("Que hechizo desea lanzar? (Llama acalambrante, Llamado de las tinieblas, Agua ardiente): ");
-                                String hechizo = input.nextLine();
-                                mago.invocarElemento(hechizo);
+                                String entrada = input.nextLine();
+                                mago.lanzarHechizo(mago.hechizos, entrada);
+                                break;
                             case 0: System.out.println("Volviendo al menu principal..."); break;
                             default: System.out.println("Opcion no valida");
                         }
 
                         if (accion_mag!=0){
-                            System.out.println("\nPresione ENTER para continuar...");
+                            System.out.println("\nPresione ENTER para continuar");
                             input.nextLine();
                         }
+
 
 
                     } while (accion_mag != 0);
                 break;
 
+                case 3: break;
                 default:
                     System.out.println("Opcion no valida");
             }
