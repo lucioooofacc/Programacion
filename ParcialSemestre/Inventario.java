@@ -25,5 +25,11 @@ public class Inventario {
     public int  getCapacidad(){
         return capacidad;
     }
+    public void removerItem(String item){
+        items.remove(item);
+        System.out.println("Se ha eliminado " + item);
+    }
 }
+
+
 

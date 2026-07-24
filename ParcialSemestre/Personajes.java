@@ -1,5 +1,4 @@
 package programacion.ParcialSemestre;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +48,7 @@ class Guerrero extends Personaje {
         super(nombre, salud);
         this.fuerza = fuerza;
         this.defensa = defensa;
+        this.mascota = null;
     }
 
     public void usarEspada(){
@@ -115,11 +115,7 @@ class Mago extends Personaje {
     }
 
     public void lanzarHechizo(String[] hechizos, String entrada){
-        if (inteligencia < 50){
-            System.out.println("No eres lo suficientemente inteligente, " + getNombre());
-        } else{
         String hechizoTrimeado = entrada.trim();
-
         for (int i = 0; i < hechizos.length; i++) {
                  if (hechizos[i].equalsIgnoreCase(hechizoTrimeado) && mana > 40){
                     System.out.println(getNombre() + " esta lanzando " + hechizos[i]);
@@ -127,6 +123,11 @@ class Mago extends Personaje {
                 }
             }
         System.out.println("No sabes ese hechizo, " + getNombre());
-        }
     }
+
+    public int getInteligencia(){
+        return inteligencia;
+     }
 }
+
+

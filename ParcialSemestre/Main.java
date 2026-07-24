@@ -1,5 +1,6 @@
 package programacion.ParcialSemestre;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 public class Main {
     public static void main (String []args){
@@ -21,13 +22,19 @@ public class Main {
 
                     Guerrero guerrero = new Guerrero(name_war, 100, 80, 40);
 
-                    System.out.println("Coloquele nombre a su mascota: ");
-                    String pet_name =  input.nextLine();
+                    System.out.println("Queres tener una mascota?");
+                    String pet_answer = input.nextLine().toLowerCase();
+                    boolean pet_boolean = pet_answer.startsWith("s");
 
-                    Mascota mascota = new Mascota(pet_name, 100);
-                    guerrero.asignarMascota(mascota);
-                    mascota.asignarGuerrero(guerrero);
-                    mascota.acompaniar();
+                    if (pet_boolean){
+                        System.out.println("Coloquele nombre a su mascota: ");
+                        String pet_name =  input.nextLine();
+
+                        Mascota mascota = new Mascota(pet_name, 100);
+                        guerrero.asignarMascota(mascota);
+                        mascota.asignarGuerrero(guerrero);
+                        mascota.acompaniar();
+                    }
 
                     int accion_war;
                     do {
@@ -119,9 +126,13 @@ public class Main {
                                 System.out.println("Contenido: " + Arrays.toString(inventario_mag.consultarInventario()));
                                 break;
                             case 9:
-                                System.out.print("Que hechizo desea lanzar? (Llama acalambrante, Llamado de las tinieblas, Agua ardiente): ");
-                                String entrada = input.nextLine();
-                                mago.lanzarHechizo(mago.hechizos, entrada);
+                                if (mago.getInteligencia() <= 30){
+                                    System.out.println("No eres lo suficientemente inteligente, " + mago.getNombre());
+                                } else {
+                                    System.out.print("Que hechizo desea lanzar? (Llama acalambrante, Llamado de las tinieblas, Agua ardiente): ");
+                                    String entrada = input.nextLine();
+                                    mago.lanzarHechizo(mago.hechizos, entrada);
+                                }
                                 break;
                             case 0: System.out.println("Volviendo al menu principal..."); break;
                             default: System.out.println("Opcion no valida");
@@ -144,4 +155,3 @@ public class Main {
         } while (op != 3);
     }
 }
-
